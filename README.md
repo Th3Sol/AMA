@@ -55,7 +55,21 @@ heuristic = {'A': 5, 'B': 3, 'C': 2, 'D': 4, 'E': 1, 'F': 0}
 
 greedy_best_first(graph, 'A', 'F', heuristic)
 ```
+##### Easy
+```python
+import heapq as h
+g={'A':['B','C'],'B':['D','E'],'C':['F'],'D':[],'E':['F'],'F':[]}
+x={'A':5,'B':3,'C':2,'D':4,'E':1,'F':0}
+v,p=set(),[(x['A'],'A')]
+while p:
+ _,n=h.heappop(p)
+ if n in v:continue
+ print(n,end=' ')
+ if n=='F':break
+ v.add(n)
+ [h.heappush(p,(x[i],i))for i in g[n]]
 
+```
 ---
 
 ### 3. Breadth First Search (BFS)
