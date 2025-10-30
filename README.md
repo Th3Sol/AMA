@@ -100,7 +100,28 @@ def bfs(visited, graph, node):
 
 bfs(visited, graph, 'A')
 ```
+#### Or (Smaller)
+```python
+graph = {
+ 'A': ['B', 'C'],
+ 'B': ['D', 'E'],
+ 'C': ['F'],
+ 'D': [], 'E': [], 'F': []
+}
 
+def bfs(graph, start):
+    visited, queue = [start], [start]
+    while queue:
+        node = queue.pop(0)
+        print(node, end=" ")
+        for n in graph[node]:
+            if n not in visited:
+                visited.append(n)
+                queue.append(n)
+
+print("Following is the Breadth-First Search:")
+bfs(graph, 'A')
+```
 ---
 
 ### 4. Split Dataset into Train and Test Sets
